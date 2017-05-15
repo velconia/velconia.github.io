@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="home">
+  {{ content }}
+
+  <ul class="post-list">
+    {% for post in site.posts limit:3 %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        {{ post.excerpt }}
+      </li>
+    {% endfor %}
+  </ul>
+<div>
+  {% for post in site.posts limit: 5 offset:3 %}
+  <p>
+    <a href="{{ post.url }}">{{ post.title }}</a> <span class="pull-right">{{ post.date | date_to_long_string }}</span>
+  </p>
+{% endfor %}
+<p><a href="/archive">更多文章</a> <span class="pull-right">{{ site.posts.size }} posts</span></p>
+</div>
+<div class="block">
+    {% for tag in site.tags %}
+    {% if tag[1].size > 1 %}
+    <a href="/tag/#{{ tag | first }}">{{ tag | first }}<sup>{{ tag[1].size }}</sup></a>
+    {% endif %}
+	{% endfor %}
+</div>
+</div>

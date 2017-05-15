@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+</article>
+
+<div class="tags">
+    <div class="pull-right"><a href="{{ site.github_repo }}/edit/master/{{ page.path }}">Edit</a> - <a href="https://twitter.com/share?url={{site.url}}{{page.url}}&amp;via={{ site.twitter_username }}&amp;text={{page.title}}" target="_blank">Tweet</a></div>{% for tag in page.tags %}<a href="/tag/#{{ tag }}">#{{ tag }}</a> {% endfor %}
+</div>
+<div class="pagination">
+  {% if page.previous %}
+  <a  href="{{ page.previous.url }}"> {{ page.previous.title }} 👈🏻</a>
+  {% endif %}
+  {% if page.next %}
+  <a class="pull-right" href="{{ page.next.url }}"> 👉🏻 {{ page.next.title }} </a>
+  {% endif %}
+</div
