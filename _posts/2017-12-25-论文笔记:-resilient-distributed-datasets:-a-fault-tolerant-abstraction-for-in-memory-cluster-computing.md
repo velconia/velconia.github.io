@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 论文笔记: Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing
-categories:
-tags:
+date: 2017-12-25 19:34:34
+categories: 技术调研
+tags: 大数据, Spark
 ---
 # Spark RDD 论文解读
 
